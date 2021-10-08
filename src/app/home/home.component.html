@@ -1,0 +1,24 @@
+<ActionBar title="videoplayer-fix"></ActionBar>
+
+<StackLayout verticalAlignment="center">
+  <VideoPlayer
+    id="goldenGateVideo"
+    src="~/assets/Golden_Gate_Bridge.mp4"
+    controls="true"
+    muted="true"
+    backgroundAudio="true"
+    autoplay="true"
+    loop="true"
+    fill="aspectFill"
+    height="30%"
+    width="auto"
+  ></VideoPlayer>
+
+  <Button text="play" (tap)="playVideo()"></Button>
+
+  <Button text="pause" (tap)="pauseVideo()"></Button>
+
+  <Button text="5 seconds" (tap)="goToTime()"></Button>
+
+  <Button text="Go to website" (tap)="openURL('https://www.goldengate.org')"></Button>
+</StackLayout>
