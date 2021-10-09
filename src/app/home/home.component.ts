@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { registerElement } from '@nativescript/angular';
 import { Video } from '@nstudio/nativescript-exoplayer';
-import { Page, Utils } from '@nativescript/core';
+import { EventData, Page, Utils } from '@nativescript/core';
 registerElement('VideoPlayer', () => Video);
 
 @Component({
@@ -10,8 +10,11 @@ registerElement('VideoPlayer', () => Video);
 })
 export class HomeComponent implements OnInit, OnDestroy {
   private _videoPlayer: Video;
-  constructor(private _page: Page) {
-    this._videoPlayer = <Video>_page.getViewById('goldenGateVideo');
+
+  onVideoLoaded(args: EventData) {
+    console.log('Video loaded');
+    this._videoPlayer = <Video>args.object;
+    this.playVideo();
   }
 
   ngOnInit(): void {

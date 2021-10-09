@@ -2,7 +2,7 @@
 
 <StackLayout verticalAlignment="center">
   <VideoPlayer
-    id="goldenGateVideo"
+    #goldenGateVideo
     src="~/assets/Golden_Gate_Bridge.mp4"
     controls="true"
     muted="true"
@@ -12,6 +12,7 @@
     fill="aspectFill"
     height="30%"
     width="auto"
+    (loaded)="onVideoLoaded($event)"
   ></VideoPlayer>
 
   <Button text="play" (tap)="playVideo()"></Button>
@@ -19,6 +20,11 @@
   <Button text="pause" (tap)="pauseVideo()"></Button>
 
   <Button text="5 seconds" (tap)="goToTime()"></Button>
+
+  <Button text="mute" (tap)="muteVideo()"></Button>
+
+  <Button text="unmute" (tap)="unmuteVideo()"></Button>
+  
 
   <Button text="Go to website" (tap)="openURL('https://www.goldengate.org')"></Button>
 </StackLayout>
